@@ -2,12 +2,23 @@
 version: 2.1
 #############
 jobs:
-  smoke_test:
-    docker:
+  configure_infra:
+  docker:
       # - image: python:3.7-alpine3.11
       # - image: circleci/redis
       # - image: ubuntu-2004:202008-01
       - image: alpine:latest
+      #- image: cimg/base:2020.01
+    steps:
+      run:
+        command:
+          apk add curl
+  smoke_test:
+    #docker:
+      # - image: python:3.7-alpine3.11
+      # - image: circleci/redis
+      # - image: ubuntu-2004:202008-01
+      #- image: alpine:latest
       #- image: cimg/base:2020.01
 
     steps:
@@ -45,3 +56,5 @@ workflows:
   myworkflow:
     jobs:
       - smoke_test
+          requires:
+            configure_infra
