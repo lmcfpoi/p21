@@ -34,7 +34,7 @@ jobs:
           command: |
             # echo "Nooooooooooooooooooo: "; pwd
             # ansible-playbook ./.circleci/main-remote.yml -i inventory --private-key myKP6.pem
-            if curl -s --head "https://google112121.com"
+            if curl -s --head "https://google.com"
             then 
               echo "SUCCESS"
             else
