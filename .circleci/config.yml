@@ -13,6 +13,7 @@ jobs:
       run:
         command:
           apk add curl
+
   smoke_test:
     #docker:
       # - image: python:3.7-alpine3.11
@@ -20,7 +21,6 @@ jobs:
       # - image: ubuntu-2004:202008-01
       #- image: alpine:latest
       #- image: cimg/base:2020.01
-
     steps:
       - checkout
       # - add_ssh_keys:
@@ -57,4 +57,4 @@ workflows:
     jobs:
       - smoke_test
           requires:
-            configure_infra
+            - configure_infra
