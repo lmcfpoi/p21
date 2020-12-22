@@ -8,7 +8,7 @@ commands:
       - run:
           name: "Create infra for test"
           command: |
-          apk add curl
+            apk add curl
 
 jobs:
   smoke_test:
