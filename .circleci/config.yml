@@ -3,11 +3,11 @@ version: 2.1
 #############
 jobs:
   smoke_test:
-    #docker:
+    docker:
       # - image: python:3.7-alpine3.11
       # - image: circleci/redis
       # - image: ubuntu-2004:202008-01
-      #- image: alpine:latest
+      - image: alpine:latest
       #- image: cimg/base:2020.01
     steps:
       - checkout
