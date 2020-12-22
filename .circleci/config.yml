@@ -1,0 +1,47 @@
+############
+version: 2.1
+#############
+jobs:
+  smoke_test:
+    docker:
+      # - image: python:3.7-alpine3.11
+      # - image: circleci/redis
+      # - image: ubuntu-2004:202008-01
+      - image: alpine:latest
+      # - image: cimg/base:2020.01
+
+    steps:
+      - checkout
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "84:a9:8b:d6:e9:68:1b:78:80:e0:4e:22:a3:0a:30:00"
+      # - run:
+          # name: Install Ansible
+          # command: |
+          #   sudo apt update -y 
+          #   sudo apt install -y language-pack-ja-base language-pack-ja 
+          #   sudo apt install -y software-properties-common 
+          #   sudo apt-add-repository -y ppa:ansible/ansible 
+          #   sudo apt update -y 
+          #   sudo apt install -y curl python-dev git 
+          #   sudo curl "https://bootstrap.pypa.io/get-pip.py" -o "/tmp/get-pip.py" 
+          #   sudo python /tmp/get-pip.py 
+          #   sudo pip install --upgrade pip && pip install --upgrade setuptools 
+          #   sudo pip install ansible
+      - run:
+          name: "Do a curl test"
+          command: |
+            # echo "Nooooooooooooooooooo: "; pwd
+            # ansible-playbook ./.circleci/main-remote.yml -i inventory --private-key myKP6.pem
+            if curl -s --head "https://google112121.com"
+            then 
+              echo "SUCCESS"
+            else
+              echo "FAILURE"
+            fi
+            
+      
+workflows:
+  myworkflow:
+    jobs:
+      - smoke_test
