@@ -40,5 +40,5 @@ workflows:
   myworkflow:
     jobs:
       - smoke_test
-        requires:
-          - create_infra
+        # requires:
+        #   - create_infra
